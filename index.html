@@ -1,16 +1,155 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Classroom</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  Hello world
-  <script src="script.js"></script>
+  <!-- Header -->
+  <header>
+    <h1>Jonah and Zach</h1>
+  </header>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for a game..." onkeyup="searchGames()">
+    <button onclick="searchGames()"><i class="fas fa-search"></i></button>
+  </div>
+
+  <!-- Game List -->
+
+
+  <section class="games-container">
+    <div class="game-card" data-name="retro bowl">
+      <a href="/retrobowl.html">
+        <img src="images/retro-bowl-cover.jpg" alt="Retro Bowl Cover">
+        <h3>Retro Bowl</h3>
+      </a>
+    </div>
+
+    <div class="game-card" data-name="1v1.LOL">
+      <a href="/1v1.lol.html">
+        <img src="images/1v1lol.png" alt="1v1.lol Cover">
+        <h3>1v1.LOL</h3>
+      </a>
+    </div>
+
+    <div class="game-card" data-name="burrito bison">
+      <a href="/burritobison.html">
+        <img src="images/burrito.png" alt="Burrito Bison Cover">
+        <h3>Burrito Bison</h3>
+      </a>
+    </div>
+
+    <div class="game-card" data-name="slope">
+      <a href="/slope.html">
+        <img src="images/slope.png" alt="Slope Cover">
+        <h3>Slope</h3>
+      </a>
+    </div>
+
+    <div class="game-card" data-name="basketball stars">
+      <a href="/basketballstars.html">
+        <img src="images/basketballstars.png" alt="Basketball Stars Cover">
+        <h3>Basketball Stars</h3>
+      </a>
+    </div>
+
+    <div class="game-card" data-name="motox3mwinter">
+      <a href="/motox3mwinter.html">
+        <img src="images/motox3mwinter.png" alt="Motox3m Winter Cover">
+        <h3>Motox3m Winter</h3>
+      </a>
+    </div>
+
+    <div class="game-card" data-name="motox3mpoolparty">
+      <a href="motox3mpoolparty.html">
+        <img src="images/motox3mpoolparty.png" alt="Motox3m Pool Party Cover">
+        <h3>Motox3m Pool Party</h3>
+      </a>
+    </div>
+
+    <div class="game-card" data-name="motox3mspookyland">
+      <a href="motox3mspookyland.html">
+        <img src="images/motox3mspooky.png" alt="Motox3m Spooky Cover">
+        <h3>Motox3m Spooky Land</h3>
+      </a>
+    </div>
+
+    <div class="game-card" data-name="motox3m">
+      <a href="motox3m.html">
+        <img src="images/motox3m.png" alt="Motox3m Cover">
+        <h3>Motox3m</h3>
+      </a>
+    </div>
+
+    <div class="game-card" data-name="motox3m2">
+      <a href="motox3m2.html">
+        <img src="images/motox3m2.png" alt="Motox3m2 Cover">
+        <h3>Motox3m2</h3>
+      </a>
+    </div>
+    <div class="game-card" data-name="motox3m3">
+      <a href="motox3m3.html">
+        <img src="images/motox3m3.png" alt="Motox3m3 Cover">
+        <h3>Motox3m3</h3>
+      </a>
+    </div>
+
+    <div class="game-card" data-name="Tanukisunset">
+      <a href="tanukisunset.html">
+        <img src="images/tanukisunset.png" alt="Tanuki Sunset Cover">
+        <h3>Tanuki Sunset</h3>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Jonah and Zach. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Search Functionality
+    const searchBar = document.getElementById('searchBar');
+    const gamesContainer = document.getElementById('gamesContainer');
+    const games = document.querySelectorAll('.game-card');
+
+    searchBar.addEventListener('input', (e) => {
+      const searchText = e.target.value.toLowerCase();
+
+      games.forEach(game => {
+        const gameName = game.getAttribute('data-name').toLowerCase();
+        if (gameName.includes(searchText)) {
+          game.style.display = 'block';
+        } else {
+          game.style.display = 'none';
+        }
+      });
+    });
+
+    // Embed Game Functionality
+    const embeddedGameSection = document.getElementById('embeddedGame');
+    const gameFrame = document.getElementById('gameFrame');
+
+    function embedGame(url) {
+      gameFrame.src = url;
+      embeddedGameSection.style.display = 'flex';
+      gamesContainer.style.display = 'none';
+    }
+
+    function closeGame() {
+      gameFrame.src = '';
+      embeddedGameSection.style.display = 'none';
+      gamesContainer.style.display = 'flex';
+    }
+  </script>
 </body>
 
 </html>

@@ -1,0 +1,102 @@
+/* Global Styles */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a2e; /* Dark background */
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  color: #ffffff; /* Light text for dark mode */
+  overflow: hidden;
+}
+
+/* Content container */
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 73%;
+  height: 73%;
+  overflow: hidden;
+  border: 1px solid #444; /* Darker border */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #2b2b2b; /* Dark content background */
+}
+
+/* Iframe styles */
+iframe {
+  width: 100%; /* Full width of content */
+  height: 100%; /* Full height of content */
+  border: none; /* No border */
+  display: block; /* Ensures the iframe behaves correctly */
+}
+
+/* Fullscreen Button Styles */
+.fullscreen-button-container {
+  position: absolute; /* Stay above content */
+  bottom: 10px; /* Position below content */
+  left: 50%;
+  transform: translateX(-50%); /* Center the buttons */
+  z-index: 2; /* Ensure it's above the content */
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #333; /* Darker background for buttons */
+  border: 2px solid #555; /* Dark border for contrast */
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  position: relative;
+  font-size: 18px;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-top: 10px; /* Adjust margin */
+  overflow: hidden;
+}
+
+/* Hover effect for button */
+.hover-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2); /* Subtle hover effect */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
+}
+
+/* Button hover effect */
+.button:hover {
+  background-color: #444; /* Slightly lighter dark button on hover */
+  transform: scale(1.05);
+}
+
+.button:hover .hover-effect {
+  width: 300%;
+  height: 300%;
+  opacity: 1;
+}
+
+/* Home button */
+.home-button {
+  position: fixed; /* Fixed position for home button */
+  top: 15px;
+  right: 20px;
+}
+
+/* Icon styling */
+.icon {
+  font-size: 20px;
+  color: #ffffff; /* Light icon color for dark mode */
+}
